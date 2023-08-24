@@ -82,11 +82,9 @@ const readStream = fs
   .on("data", (line) => {
     const data = Object.values(line);
     if (data.length !== 19) {
+      console.log("City data is not complete:")
       console.log("data", data);
     } else {
-      // console.log("-------------------");
-      // console.log("data", data);
-      // console.log("-------------------");
       const insertSQL = createInsertSQL(data);
       writeStream.write(insertSQL);
     }
